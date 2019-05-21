@@ -55,7 +55,7 @@ def publish_event(message, sink)
         :headers => {'Content-Type'=>'text/plain'}, 
         :body => message.to_json)
     
-    if r.code != 200
+    if r.code != 200 and r.code != 202
         @logger.error("Error! #{r}")
     end
 end
